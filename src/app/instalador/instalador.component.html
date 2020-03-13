@@ -1,0 +1,91 @@
+<h1 class="titulo" >
+
+    <div fxLayout="col" fxLayoutAlign="center start" fxLayoutGap="30px">
+        <span>Instalador</span>         
+    </div>
+    
+</h1>
+    
+<div class="text" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="30px">
+    Este tutorial explica como funciona o processo de instalação da integração Protheus & Auditto. Esse programa criará os dicionários de dados de estrutura para processamento da integração.
+</div>
+    
+<div class="text" fxLayout="row" fxLayoutAlign="start start">
+    
+    <ul class="ul">Pré-Requisitos:
+    <li class="li">Aplique a patch de instalação da integração;</li>
+    <li class="li">Configure o SSLConfigure no aapserver.ini;</li>
+    <li class="li">Crie o programa XMLPU001.prw com as empresas do sigamat.emp que farão parte da integração;</li>
+    <li class="li">Solicite seu usuário e senha de api da Auditto;</li>
+    <li class="li">Libere o acesso do servidor a página: https://admin.auditto.com.br ;</li>
+    </ul>
+
+</div>
+
+<div class="text" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="30px">
+        No appserver.ini tag SLLConfigure:
+</div>
+     
+<textarea class="box" autosize readonly="true" >
+        
+    [SSLConfigure]
+    SSL2      = 1
+    SSL3      = 1
+    TLS1_0    = 1
+    TLS1_1    = 1
+    TLS1_2    = 1
+    Verbose   = 1
+    Bugs      = 1
+    State     = 1
+    CacheSize = 32
+</textarea>
+    
+<div class="text" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="30px">
+    Programa XMLPU001:
+</div>
+ 
+<textarea class="box" autosize readonly="true" >
+    
+   User Function XMLPU001
+
+   //array com os códigos das empresas (M0_CODIGO)
+   Local aEmp := {"01","02","03","99"}
+            
+   Return aEmp
+</textarea>
+
+<div class="text" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="30px">
+    Abra o smartclient e no lugar da chamada de programa inicial preencha U_XMLAM001 e clique em Ok.
+</div>      
+
+<div class="text" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="30px">
+    <img src="assets/img/smart_inicial.png" class="img-fluid" />
+</div>
+
+<div class="text" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="30px">
+    A tela de configuração é para que o sistema crie os dicionários para as empresas selecionadas levando em consideração suas tabelas existentes. Preencha todas as informações da tela e confirme.
+</div>      
+    
+<div class="text" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="30px">
+    <img src="assets/img/tela_inst_sem_parm.png" class="img-fluid" />
+</div>
+
+<div class="text" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="30px">
+    Exemplo de preenchimento:
+</div>      
+        
+<div class="text" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="30px">
+    <img src="assets/img/tela_inst_com_parm.png" class="img-fluid" />
+</div>
+
+<div class="text" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="30px">
+    Recomendação: Confira a geração dos dicionários de dados SX2, SX3, SIX e SX6.
+</div>      
+            
+<div class="text" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="30px">
+    <img src="assets/img/inst_sx6.png" class="img-fluid" />
+</div>
+
+<div class="text" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="30px" >
+        <img src="assets/img/inst_sx3.png" class="img-fluid" />
+</div>
